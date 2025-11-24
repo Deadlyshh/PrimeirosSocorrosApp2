@@ -4,24 +4,9 @@ import { Ionicons } from '@expo/vector-icons';
 
 export default function HomeScreen() {
   const quickActions = [
-    {
-      title: 'Ligar Emergência',
-      icon: 'call',
-      color: '#FF3B30',
-      action: () => Linking.openURL('tel:192')
-    },
-    {
-      title: 'Hospitais Próximos',
-      icon: 'location',
-      color: '#34C759',
-      action: () => console.log('Abrir mapa')
-    },
-    {
-      title: 'Contatos de Emergência',
-      icon: 'people',
-      color: '#5856D6',
-      action: () => console.log('Abrir contatos')
-    }
+    { title: 'Ligar Emergência', icon: 'call', color: '#FF3B30', action: () => Linking.openURL('tel:192') },
+    { title: 'Hospitais Próximos', icon: 'location', color: '#34C759', action: () => console.log('Abrir mapa') },
+    { title: 'Contatos de Emergência', icon: 'people', color: '#5856D6', action: () => console.log('Abrir contatos') },
   ];
 
   return (
@@ -34,11 +19,7 @@ export default function HomeScreen() {
       <View style={styles.quickActions}>
         {quickActions.map((action, index) => (
           <View key={index} style={styles.actionCard}>
-            <Ionicons 
-              name={action.icon} 
-              size={28} 
-              color={action.color} 
-            />
+            <Ionicons name={action.icon as any} size={28} color={action.color} />
             <Text style={styles.actionText}>{action.title}</Text>
           </View>
         ))}
@@ -67,81 +48,35 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#f5f5f5',
-  },
-  header: {
-    padding: 20,
-    backgroundColor: 'white',
-    marginBottom: 10,
-  },
-  title: {
-    fontSize: 28,
-    fontWeight: 'bold',
-    color: '#333',
-  },
-  subtitle: {
-    fontSize: 16,
-    color: '#666',
-    marginTop: 5,
-  },
+  container: { flex: 1, backgroundColor: '#fff' },
+  header: { padding: 20, paddingTop: 28 },
+  title: { fontSize: 28, fontWeight: '800', marginBottom: 4 },
+  subtitle: { fontSize: 14, color: '#6b7280' },
+
   quickActions: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    padding: 20,
-    backgroundColor: 'white',
-    marginBottom: 10,
+    paddingHorizontal: 12,
+    marginTop: 12,
   },
   actionCard: {
     alignItems: 'center',
-  },
-  actionText: {
-    marginTop: 8,
-    fontSize: 12,
-    fontWeight: '500',
-    textAlign: 'center',
-  },
-  section: {
-    backgroundColor: 'white',
-    margin: 10,
-    padding: 15,
+    justifyContent: 'center',
+    backgroundColor: '#F3F4F6',
     borderRadius: 12,
+    width: 110,
+    height: 90,
+    padding: 12,
   },
-  sectionTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginBottom: 10,
-  },
-  tipsCard: {
-    backgroundColor: '#f8f8f8',
-    padding: 15,
-    borderRadius: 8,
-  },
-  tip: {
-    fontSize: 16,
-    marginBottom: 8,
-    color: '#333',
-  },
-  emergencyContact: {
-    backgroundColor: 'white',
-    margin: 10,
-    padding: 15,
-    borderRadius: 12,
-  },
-  contactTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginBottom: 10,
-  },
-  contactList: {
-    backgroundColor: '#f0f8ff',
-    padding: 15,
-    borderRadius: 8,
-  },
-  contactItem: {
-    fontSize: 16,
-    marginBottom: 8,
-    fontWeight: '500',
-  },
+  actionText: { marginTop: 8, fontWeight: '600', textAlign: 'center' },
+
+  section: { paddingHorizontal: 20, marginTop: 16 },
+  sectionTitle: { fontSize: 18, fontWeight: '700', marginBottom: 8 },
+  tipsCard: { backgroundColor: '#F9FAFB', padding: 16, borderRadius: 12 },
+  tip: { marginBottom: 6, color: '#374151' },
+
+  emergencyContact: { paddingHorizontal: 20, marginTop: 16, marginBottom: 24 },
+  contactTitle: { fontSize: 18, fontWeight: '700', marginBottom: 8 },
+  contactList: { backgroundColor: '#F3F4F6', padding: 16, borderRadius: 12 },
+  contactItem: { marginBottom: 4, fontSize: 16 },
 });

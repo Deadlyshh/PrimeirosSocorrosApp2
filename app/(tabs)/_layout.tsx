@@ -29,6 +29,16 @@ export default function TabLayout() {
           ),
         }}
       />
+      <Tabs.Screen
+        name="perfil-saude"
+        options={{
+          title: 'Perfil',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="heart-circle" color={color} size={size} />
+          ),
+        }}
+      />
     </Tabs>
+    
   );
 }
